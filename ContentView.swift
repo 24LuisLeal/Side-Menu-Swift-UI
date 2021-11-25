@@ -1,4 +1,4 @@
-import Swift UI
+import SwiftUI
 
 struct ContentView: View{
 
@@ -8,7 +8,7 @@ struct ContentView: View{
 
     var body: some View{
         ZStack{
-            (self.show ? Color.blank.opacity(0.05):
+            (self.show ? Color.black.opacity(0.05):
             Color.clear).edgesIgnoringSafeArea(.all)
 
 
@@ -28,10 +28,10 @@ struct ContentView: View{
                     .padding(.bottom, 50)
 
                     //Elementos del menú
-                    ForEach(data, id: \.self){i in data
+                    ForEach(data, id: \.self){i in 
                         Button(action:{
                             self.index = i 
-                            withAnimation(spring()){
+                            withAnimation(.spring()){
                                 self.show.toggle()
                             }
                         }){
@@ -88,8 +88,8 @@ struct ContentView_Previews: PreviewProvider{
 //Vista principal que contiene el contenido inicial
 struct MainView: View{
 
-    @Binding var show = Bool
-    @Binding var index = String
+    @Binding var show : Bool
+    @Binding var index : String
 
     var body: some View{
         VStack(spacing: 0){
